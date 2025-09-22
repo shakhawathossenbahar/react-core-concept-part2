@@ -1,14 +1,16 @@
 import { use } from "react"
+import Friend from "./Friend";
 
 export default function Friends({friendsName}) {
 
    const friends = use(friendsName);
-   console.log(friends);
 
    return(
       <div className="user-card">
          <h2>Friends name list</h2>
-         <h3>How many: {friends.length}</h3>
+         {
+            friends.map(friend => <Friend key={friend.id} friend={friend}></Friend>)
+         }
       </div>
    )
 }
